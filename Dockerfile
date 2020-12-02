@@ -51,13 +51,10 @@ RUN docker-php-ext-install pdo \
     ftp
     #install ssh2
 RUN apt-get install -y libssh2-1-dev
-RUN cd /tmp && git clone https://git.php.net/repository/pecl/networking/ssh2.git && cd /tmp/ssh2 \
-    && phpize && ./configure && make && make install \
-    && echo "extension=ssh2.so" > /usr/local/etc/php/conf.d/ext-ssh2.ini \
-    && rm -rf /tmp/ssh2
-    # install ampq
-RUN pecl install amqp; \
-    docker-php-ext-enable amqp
+#RUN cd /tmp && git clone https://git.php.net/repository/pecl/networking/ssh2.git && cd /tmp/ssh2 \
+#    && phpize && ./configure && make && make install \
+#    && echo "extension=ssh2.so" > /usr/local/etc/php/conf.d/ext-ssh2.ini \
+#    && rm -rf /tmp/ssh2
     # Configure php
 COPY config/tzone.ini /usr/local/etc/php/conf.d/tzone.ini
 COPY config/uploads.ini /usr/local/etc/php/conf.d/uploads.ini
