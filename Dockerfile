@@ -1,6 +1,7 @@
-FROM php:8.0.0-fpm-buster
+FROM php:8.0.1-fpm-buster
 
-RUN apt-get update && apt-get install -y sudo \
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
+    sudo \
     nano \
     supervisor \
     git \
